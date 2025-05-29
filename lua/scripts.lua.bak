@@ -1,0 +1,56 @@
+-- SurroundWithBrackets 関数を定義
+function SurroundWithBrackets(opening, closing)
+  -- 選択範囲の始まりと終わりを取得
+  local start_pos = vim.fn.getpos("'<")
+  local end_pos = vim.fn.getpos("'>")
+
+  -- 選択範囲の行を取得
+  local start_line = start_pos[2]
+  local end_line = end_pos[2]
+
+  -- 選択範囲が単一行の場合
+  if start_line == end_line then
+    local line = vim.fn.getline(start_line)
+    local selected_text = line:sub(start_pos[3], end_pos[3])
+    local new_line = line:sub(1, start_pos[3] - 1) .. opening .. selected_text .. closing .. line:sub(end_pos[3] + 1)
+    vim.fn.setline(start_line, new_line)
+  else
+    -- 複数行の場合
+    local lines = vim.fn.getline(start_line, end_line)
+    lines[1] = lines[1]:sub(1, start_pos[3] - 1) .. opening .. lines[1]:sub(start_pos[3])
+    lines[#lines] = lines[#lines]:sub(1, end_pos[3]) .. closing .. lines[#lines]:sub(end_pos[3] + 1)
+    vim.fn.setline(start_line, lines[1])
+    for i = 2, #lines - 1 do
+      vim.fn.setline(start_line + i - 1, lines[i])
+    end
+    vim.fn.setline(end_line, lines[#lines])
+  end
+end
+
+-- キーマッピング
+-- vim.api.nvim_set_keymap('x', '<space>(', [[:lua SurroundWithBrackets('(', ')')<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('x', '<space>[', [[:lua SurroundWithBrackets('[', ']')<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('x', '<space>{', [[:lua SurroundWithBrackets('{', '}')<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('x', '<space>"', [[:lua SurroundWithBrackets('"', '"')<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('x', "<space>'", [[:lua SurroundWithBrackets("'", "'")<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('x', '<space><', [[:lua SurroundWithBrackets('<', '>')<CR>]], { noremap = true, silent = true })
+
+-- CompleteUseState 関数を定義
+function CompleteUseState()
+  local var_name = vim.fn.expand('<cword>')
+  local setter_name = 'set' .. string.upper(var_name:sub(1, 1)) .. var_name:sub(2)
+  vim.api.nvim_feedkeys("ciwconst [ " .. var_name .. ", " .. setter_name .. " ] = useState()", 'n', true)
+end
+
+-- キーマッピング
+-- vim.api.nvim_set_keymap('n', '<C-s>', [[:lua CompleteUseState()<CR> :w<CR>]], { noremap = true, silent = true })
+
+-- YankFileName 関数を定義
+function YankFileName()
+  local file_name = vim.fn.expand('%')
+  vim.fn.setreg('+', file_name)
+  print("File name copied to clipboard: " .. file_name)
+end
+
+-- キーマッピング
+-- vim.api.nvim_set_keymap('n', '<C-i>',[[:lua YankFileName()<CR>]], { noremap = true, silent = true })

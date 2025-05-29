@@ -1,0 +1,278 @@
+-- パッケージマネージャーにlazyを採用
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+
+vim.opt.rtp:prepend(lazypath)
+require('lazy').setup({
+  {'nvim-telescope/telescope.nvim', tag = '0.1.8'},
+  "lifepillar/vim-colortemplate",
+  'nvim-tree/nvim-web-devicons',
+  'scrooloose/nerdtree',
+  {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  },
+  'dense-analysis/ale',
+  { 'neoclide/coc.nvim', branch = 'release' },
+  'sbdchd/neoformat',
+  'APZelos/blamer.nvim',
+  'kamykn/spelunker.vim',
+  'airblade/vim-gitgutter',
+  "lewis6991/gitsigns.nvim",
+  -- 'alvan/vim-closetag',
+  'tpope/vim-commentary',
+  'tpope/vim-fugitive',
+  'olimorris/onedarkpro.nvim',
+  { "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {"folke/noice.nvim"},
+  {"rcarriga/nvim-notify"},
+  --{
+  --  "lukas-reineke/indent-blankline.nvim",
+  --  main = "ibl",
+  --  ---@module "ibl"
+  --  ---@type ibl.config
+  --  opts = {},
+  --},
+  "karb94/neoscroll.nvim",
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  "jamestthompson3/sort-import.nvim",
+  "rebelot/kanagawa.nvim",
+
+  --{'maxmx03/solarized.nvim',
+--lazy = false,
+  --priority = 1000,
+  -----@type solarized.config
+  --opts = {},
+  --config = function(_, opts)
+  --  vim.o.termguicolors = true
+  --  vim.o.background = 'dark'
+  --  require('solarized').setup(opts)
+  --  vim.cmd.colorscheme 'solarized'
+  --end
+--}
+
+  -- {"nvim-treesitter/nvim-treesitter", TSUpdate = true},
+  -- {"windwp/nvim-ts-autotag"}
+{ 'github/copilot.vim', lazy = false },
+})
+
+
+-- NERDTree
+vim.keymap.set('n', '<C-t>', ':NERDTreeToggle<CR>')
+vim.keymap.set('n', '<space>x', function()
+  vim.cmd('NERDTreeFind')
+
+  local original_isk = vim.bo.iskeyword
+  vim.bo.iskeyword = original_isk .. ",."
+
+  local word = vim.fn.expand('<cword>')
+  vim.cmd(string.format('match IncSearch /\\<%s\\>/', word))
+
+  vim.bo.iskeyword = original_isk
+end)
+
+-- vim.keymap.set('n', '<space>x',function NERDTreeFindAndHighlight()
+--   vim.cmd("nerdtreeFind")
+--   vim.cmd("setlocal iskeyword+=.")
+--   vim.cmd("normal! 0w")
+--   local word = vim.fn.expand("<cword>")
+--   vim.cmd(string.format("match IncSearch /\<%s\>/", word))
+--   vim.cmd("setlocal iskeyword-=.")
+-- end
+
+vim.g.Nvimwebdevicons_enable_nerdtree = 1
+vim.g.NERDTreeWinSize = 36
+
+-- ALE
+vim.g.ale_linters = {
+  javascript = {'eslint'},
+  typescript = {'eslint'},
+  javascriptreact = {'eslint'},
+  typescriptreact = {'eslint'},
+  html = {'eslint'},
+  css = {'eslint'},
+  scss = {'eslint'},
+  python = {'flake8'},
+  vim = {'vimlint'},
+  zsh = {'shellcheck'}
+}
+vim.g.ale_linters_explicit = 1
+vim.g.ale_echo_msg_error_str = 'Error'
+vim.g.ale_echo_msg_warning_str = 'Warning'
+vim.g.ale_fix_on_save = 0
+
+vim.api.nvim_create_autocmd({'VimEnter', 'SourcePost'}, {
+  callback = function()
+    vim.cmd('highlight! ALEError ctermfg=7 ctermbg=160 guifg=#ffffff guibg=#d7005f')
+    vim.cmd('highlight! ALEWarning ctermfg=232 ctermbg=154 guifg=#080808 guibg=#afd700')
+    vim.cmd('highlight! ALEVirtualTextError ctermfg=7 ctermbg=160 guifg=#ffffff guibg=#d7005f')
+    vim.cmd('highlight! ALEVirtualTextWarning ctermfg=232 ctermbg=154 guifg=#080808 guibg=#afd700')
+  end
+})
+
+vim.g.airline_extensions_ale_enabled = 1
+vim.g.neoformat_enabled_scss = {'prettier'}
+-- vim.g:coc_global_extensions = ['coc-stylelintplus']
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.js,*.ts,*.jsx,*.tsx,*.css,*.scss,*.json,*.lua',
+  callback = function()
+    vim.cmd('Neoformat, prettier')
+  end
+})
+
+-- 自動保存設定
+-- vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
+--   callback = function()
+--     vim.cmd('silent! write')
+--   end
+-- })
+--
+
+-- vim.g.neoformat_enabled_javascript = {'prettier'}
+-- vim.g.neoformat_enabled_typescript = {'prettier'}
+-- vim.g.neoformat_enabled_lua = {'lua'}
+-- vim.g.neoformat_enabled_sh = {'sh'}
+-- vim.g.neoformat_enabled_json = {'json'}
+vim.g.neoformat_config = {
+  javascript = { 'prettier' },
+  typescript = { 'prettier' },
+  typescriptreact = { 'prettier' },
+  javascriptreact = { 'prettier' },
+  json = { 'prettier' },
+  lua = { 'lua' },
+  sh = { 'sh' },
+  css = { 'prettier' },
+  scss = { 'prettier' },
+}
+vim.g.neoformat_try_node_exe = 1
+
+-- Blamerの設定
+vim.keymap.set('n', '<space>z', ':BlamerToggle<CR>')
+
+-- spelunkerの設定
+vim.opt.spell = false
+
+-- jsx, tsxのシンタックスハイライト設定
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern = '*.tsx,*.jsx',
+  callback = function()
+    vim.bo.filetype = 'typescriptreact'
+  end
+})
+
+-- gitgutterの設定
+vim.g.gitgutter_max_signs = 5000
+vim.opt.signcolumn = 'auto'
+vim.g.gitgutter_override_sign_column_highlight = 0
+
+-- closetagの設定
+vim.g.closetag_filenames = '*.tsx,*.jsx'
+vim.g.closetag_shortcut = '>'
+vim.g.closetag_enable_react_fragment = 1
+
+-- coc.nvimの設定
+vim.keymap.set('n', '<C-j>', ":call CocActionAsync('definitionHover')<CR>")
+vim.keymap.set('n', '<C-g>', '<Plug>(coc-references)')
+vim.keymap.set('n', '<space>fj', '<Plug>(coc-rename)')
+
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function()
+    vim.cmd("silent call CocActionAsync('highlight')")
+  end
+})
+
+-- require("nvim-tree").setup()
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+--
+
+require("notify").setup({
+  background_colour = "#000000"
+})
+
+require("noice").setup({
+    routes = {
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+          find = "written",
+        },
+        opts = { skip = true },
+      },
+    },
+  })
+-- local notify = require 'notify'
+-- vim.notify = notify
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "CyberdreamToggleMode",
+    callback = function(event)
+        print("Switched to " .. event.data .. " mode!")
+    end,
+})
+
+require("lualine").setup({
+  options = {
+    -- theme = 'wombat'
+    theme = 'codedark'
+  }
+})
+
+-- cyberdream
+require("cyberdream").setup({
+  transparent = true,
+  -- theme = {
+  --   variant = "dark",
+  -- },
+  extensions = {
+    notify = true
+  }
+})
+
+-- onedarkpro
+ require("onedarkpro").setup({
+  styles = {
+    types = "NONE",
+    methods = "bold",
+    numbers = "NONE",
+    strings = "NONE",
+    comments = "NONE",
+    keywords = "bold",
+    constants = "NONE",
+    functions = "bold",
+    operators = "NONE",
+    variables = "NONE",
+    parameters = "bold",
+    conditionals = "bold",
+    virtual_text = "NONE",
+  }
+})
+
+require('gitsigns').setup()
+require("neoscroll").setup({
+  duration_multiplier = 0.2
+})
+
+require'sort-import'.setup()
+
+require'sort-import'.sort_import()
+require'sort-import'.sort_import(true)
+    

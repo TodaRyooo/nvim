@@ -1,0 +1,113 @@
+" プラグイン設定
+call plug#begin('~/.config/nvim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sbdchd/neoformat'
+Plug 'APZelos/blamer.nvim'
+Plug 'kamykn/spelunker.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'olimorris/onedarkpro.nvim'
+call plug#end()
+
+" NERDTree 設定
+" Ctrl-tでNERDTreeをトグル
+nnoremap <C-t> :NERDTreeToggle<CR>
+" フォーカスをトグルする関数
+function! ToggleFocus()
+  if exists("t:NERDTreeBufName")
+    if bufname('%') == t:NERDTreeBufName
+      execute 'wincmd p' 
+    else
+      execute ':NERDTreeFocus'  
+    endif
+  else
+  endif
+endfunction
+
+" NERDTreeTabsを利用するように変更
+nnoremap <space>x :call NERDTreeFindAndHighlight()<CR>
+" Findしつつファイルをハイライトする
+function! NERDTreeFindAndHighlight()
+  NERDTreeFind
+  :setlocal isk+=.
+  normal! 0w
+  exe printf('match IncSearch /\<%s\>/', expand('<cword>'))
+  :setlocal isk-=.
+endfunction
+" 開いてるファイルをハイライトする
+function! NERDTreeHighlight()
+  :call NERDTreeFindAndHighlight()
+  :wincmd p
+endfunction
+
+" nnoremap tt :call ToggleFocus()<CR>
+let NERDTreeWinSize=36
+
+" ALE 設定
+
+let g:ale_linters = {
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
+    \ 'javascriptreact': ['eslint'],
+    \ 'typescriptreact': ['eslint'],
+    \ 'html': ['eslint'],
+    \ 'css': ['eslint'],
+    \ 'python': ['flake8'],
+    \ 'vim': ['vimlint'],
+    \ 'zsh': ['shellcheck'],
+    \ }
+let g:ale_linters_explicit = 1
+
+" ALEのエラーや警告メッセージを表示設定
+let g:ale_echo_msg_error_str = 'Error'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_fix_on_save = 0
+
+" ALEの色設定
+autocmd VimEnter,SourcePost * :highlight! ALEError ctermfg=7 ctermbg=160 guifg=#ffffff guibg=#d7005f
+autocmd VimEnter,SourcePost * :highlight! ALEWarning ctermfg=232 ctermbg=154 guifg=#080808 guibg=#afd700
+autocmd VimEnter,SourcePost * :highlight! ALEVirtualTextError ctermfg=7 ctermbg=160 guifg=#ffffff guibg=#d7005f
+autocmd VimEnter,SourcePost * :highlight! ALEVirtualTextWarning ctermfg=232 ctermbg=154 guifg=#080808 guibg=#afd700
+" nnoremap <C-e> :ALENextWrap<CR> 
+let g:airline#extensions#ale#enabled = 1  " AirlineにALEの情報を表示
+autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.scss,*.json Neoformat
+
+" 自動保存設定
+autocmd TextChanged,TextChangedI * silent! write  " 編集中のファイルを自動的に保存
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_try_node_exe = 1  " プロジェクト内の prettier を使用
+autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.scss,*.css Neoformat
+
+" Blamerの設定
+noremap <space>z :BlamerToggle <CR>
+
+" spelunkerの設定
+set nospell
+
+" jsx, tsxのシンタックスハイライト設定
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+
+let g:gitgutter_max_signs = 5000 
+set signcolumn=auto
+let g:gitgutter_override_sign_column_highlight = 0
+hi GitGutterAdd ctermfg=46 guifg=#00ff00
+hi GitGutterChange ctermfg=199 guifg=#ff00ff
+hi GitGutterDelete ctermfg=1 guifg=#ff0000
+hi GitGutterChangeDelete ctermfg=93 guifg=#ffd700
+
+" closetagの設定
+let g:closetag_filenames = '*.tsx,*.jsx'
+let g:closetag_shortcut = '>'
+let g:closetag_enable_react_fragment = 1
+
+nnoremap <C-j> :call CocActionAsync('definitionHover') <CR>
+nnoremap <C-g> <Plug>(coc-references)
+nnoremap <space>fj <Plug>(coc-rename)
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
