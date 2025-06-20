@@ -6,6 +6,9 @@ return {
 		require("lualine").setup({
 			options = {
 				theme = "codedark",
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				globalstatus = true,
 			},
 		})
 	end,

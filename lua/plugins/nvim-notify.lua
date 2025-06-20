@@ -3,7 +3,8 @@ return {
 
 	config = function()
 		require("notify").setup({
-			background_colour = "#000000",
+			timeout = 3500,
+			stages = "static",
 		})
 	end,
 }

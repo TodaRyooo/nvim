@@ -3,7 +3,7 @@ return {
 	version = false,
 	lazy = false,
 	priority = 1000,
-	theme = "hard",
+	background = "hard",
 
 	config = function()
 		require("everforest").setup({})

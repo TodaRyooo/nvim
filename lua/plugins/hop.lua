@@ -9,8 +9,10 @@ return {
 
 	config = function()
 		require("hop").setup()
-		key("n", ";h", ":HopWord<cr>", { silent = true })
-		key("n", ";l", ":HopLine<cr>", { silent = true })
-		key("n", ";c", ":HopChar1<cr>", { silent = true })
+		-- key("n", "'w", ":HopWord<cr>", { silent = true })
+		key("n", "'l", ":HopLine<cr>", { silent = true })
+		key("n", "]l", ":HopLine<cr>", { silent = true })
+		key("n", "'h", ":HopChar1<cr>", { silent = true })
+		key("n", "]h", ":HopChar1<cr>", { silent = true })
 	end,
 }
