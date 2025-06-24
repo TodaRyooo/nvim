@@ -1,3 +1,5 @@
+local cmd = require("utils").cmd
+
 -- 選択範囲を特定の文字で囲む関数
 function SurroundWithBrackets(opening, closing)
 	-- 選択範囲の始まりと終わりを取得
@@ -47,13 +49,13 @@ end
 
 -- 開いているファイルの場所をNERDTreeでハイライトする
 function NERDTreeFindAndHighlight()
-	vim.cmd("NERDTreeFind")
+	cmd("NERDTreeFind")
 
 	local original_isk = vim.bo.iskeyword
 	vim.bo.iskeyword = original_isk .. ",."
 
 	local word = vim.fn.expand("<cword>")
-	vim.cmd(string.format("match IncSearch /\\<%s\\>/", word))
+	cmd(string.format("match IncSearch /\\<%s\\>/", word))
 
 	vim.bo.iskeyword = original_isk
 end

@@ -8,7 +8,7 @@ key("n", "<C-e>", ":w<CR>", { noremap = true })
 -- ウィンドウ操作
 key("n", "<C-l>", "gt", { noremap = true })
 key("n", "<C-h>", "gT", { noremap = true })
-key("n", "<C-x>", "<C-^>", { noremap = true })
+key("n", "<C-q>", "<C-^>", { noremap = true })
 
 -- arg周り
 key("n", "<space><space>a", ":argadd %<CR>", { noremap = true })
@@ -43,4 +43,9 @@ key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<C
 -- NERDTree
 key("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
 key("n", "<space><space>f", ":NERDTreeFind ", { noremap = true })
-key("n", "<space>x", "[[:lua NERDTreeFindAndHighlight()<CR>n]]", { noremap = true })
+-- key("n", "<space>x", "[[:lua NERDTreeFindAndHighlight()<CR>]]", { noremap = true })
+key("n", "<space>x", ":NERDTreeFind %<CR>", { noremap = true })
+-- key("n", "<space><space>x", ":NERDTreeFind %<CR><ESC>s:NERDTreeToggle<CR><C-k>", { noremap = true })
+
+-- -- Pantran
+-- key("n", "<space>tr", ":Pantran<CR>", { noremap = true })

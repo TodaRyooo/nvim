@@ -3,7 +3,7 @@ return {
 
 	config = function()
 		require("neoscroll").setup({
-			duration_multiplier = 0.1,
+			duration_multiplier = 0.05,
 		})
 	end,
 }

@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	require("plugins.nvim-web-devicons"),
 	require("plugins.ale"),
+	require("plugins.alpha-nvim"),
 	require("plugins.blamer"),
 	require("plugins.Comment"),
 	require("plugins.coc"),
@@ -22,9 +23,11 @@ require("lazy").setup({
 	require("plugins.hop"),
 	-- require("plugins.indent-blankline"),
 	require("plugins.lualine"),
+	require("plugins.mini"),
 	require("plugins.neoformat"),
 	require("plugins.neoscroll"),
 	require("plugins.nerdtree"),
+	require("plugins.nightfox"),
 	require("plugins.noice"),
 	-- require("plugins.nvim-lint"),
 	require("plugins.nvim-notify"),
@@ -40,7 +43,10 @@ require("lazy").setup({
 	require("plugins.toggleterm"),
 	require("plugins.vim-fugitive"),
 	require("plugins.zen-mode"),
-	require("plugins.dashboard-nvim"),
+	require("plugins.pantran"),
+
+	{ "vim-jp/vimdoc-ja" },
+	-- require("plugins.dashboard-nvim"),
 })
 
 -- NERDTree
@@ -81,20 +87,11 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	end,
 })
 
--- closetagの設定
--- vim.g.closetag_filenames = "*.tsx,*.jsx"
--- vim.g.closetag_shortcut = ">"
--- vim.g.closetag_enable_react_fragment = 1
-
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		vim.cmd("silent call CocActionAsync('highlight')")
-	end,
-})
-
-require("dashboard").setup({
-	header = "qwe",
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+-- 	callback = function()
+-- 		vim.cmd("silent call CocActionAsync('highlight')")
+-- 	end,
+-- })
 
 -- 自動保存設定
 -- vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
