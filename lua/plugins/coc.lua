@@ -1,3 +1,5 @@
+local key = require("utils").key
+
 return {
 	"neoclide/coc.nvim",
 	branch = "release",
@@ -10,9 +12,9 @@ return {
 			"coc-html",
 		}
 
-		vim.keymap.set("n", "<C-j>", ":call CocActionAsync('definitionHover')<CR>")
-		vim.keymap.set("n", "<C-g>", "<Plug>(coc-references)", { noremap = true })
-		vim.keymap.set("n", "<C-k>", "<Plug>(coc-definition)", {})
-		vim.keymap.set("n", "<space>fj", "<Plug>(coc-rename)")
+		key("n", "<C-j>", ":call CocActionAsync('definitionHover')<CR>")
+		key("n", "<C-g>", "<Plug>(coc-references)", { noremap = true })
+		key("n", "<C-k>", "<Plug>(coc-definition)", {})
+		key("n", "<space>fj", "<Plug>(coc-rename)")
 	end,
 }
