@@ -43,7 +43,6 @@ key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<C
 -- NERDTree
 key("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
 key("n", "<space><space>f", ":NERDTreeFind ", { noremap = true })
--- key("n", "<space>x", "[[:lua NERDTreeFindAndHighlight()<CR>]]", { noremap = true })
 key("n", "<space>x", ":NERDTreeFind %<CR>", { noremap = true })
 -- key("n", "<space><space>x", ":NERDTreeFind %<CR><ESC>s:NERDTreeToggle<CR><C-k>", { noremap = true })
 
