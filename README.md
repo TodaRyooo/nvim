@@ -1,4 +1,4 @@
-## ノーマルモードのキー操作
+## 🚀ノーマルモードのキー操作
 
 **zx** `:source ~/.config/nvim/init.lua<CR>`
 - init.luaファイルの再読み込み
@@ -189,7 +189,7 @@ const hoge, setHoge = useState(false)
 - Zenモードを起動する
     - 使用プラグイン: [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
-## インサートモードのキー操作
+## 🚀インサートモードのキー操作
 
 ### 簡易スニペット
 
