@@ -41,9 +41,11 @@ key("n", "<space><space>g", ":OpenBrowserSearch ", { noremap = true })
 key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<CR>", { noremap = true })
 
 -- NERDTree
-key("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
-key("n", "<space><space>f", ":NERDTreeFind ", { noremap = true })
-key("n", "<space>x", ":NERDTreeFind %<CR>", { noremap = true })
+-- key("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
+key("n", "<C-t>", ":Neotree toggle reveal_force_cwd<CR>", { noremap = true })
+-- key("n", "<space><space>f", ":NERDTreeFind ", { noremap = true })
+key("n", "<space>x", ":Neotree reveal<CR>", { noremap = true })
+-- key("n", "<space>x", ":NERDTreeFind %<CR>", { noremap = true })
 -- key("n", "<space><space>x", ":NERDTreeFind %<CR><ESC>s:NERDTreeToggle<CR><C-k>", { noremap = true })
 
 -- -- Pantran

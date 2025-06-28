@@ -3,7 +3,7 @@ local opt = utils.set
 local cmd = utils.cmd
 
 -- NOTE 基本設定
-cmd("colorscheme everforest")
+cmd("colorscheme cyberdream")
 cmd("syntax enable")
 cmd("filetype plugin indent on")
 opt.helplang = "ja"
@@ -11,6 +11,7 @@ opt.clipboard = "unnamedplus"
 opt.mouse = "a"
 opt.termguicolors = true
 opt.swapfile = false
+-- opt.background = "light"
 
 -- NOTE タブやインデント関連の設定
 cmd("set nowrap")

@@ -18,6 +18,7 @@ require("lazy").setup({
 	require("plugins.blamer"),
 	require("plugins.Comment"),
 	require("plugins.coc"),
+	require("plugins.cyberdream"),
 	require("plugins.everforest-nvim"),
 	require("plugins.gitsigns"),
 	require("plugins.hop"),
@@ -26,6 +27,7 @@ require("lazy").setup({
 	require("plugins.mini"),
 	require("plugins.neoformat"),
 	require("plugins.neoscroll"),
+	require("plugins.neo-tree"),
 	require("plugins.nerdtree"),
 	require("plugins.nightfox"),
 	require("plugins.noice"),
@@ -42,6 +44,7 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.toggleterm"),
 	require("plugins.vim-fugitive"),
+	require("plugins.vim-table-mode"),
 	require("plugins.zen-mode"),
 	require("plugins.pantran"),
 
