@@ -36,8 +36,8 @@ vim.opt.swapfile = false
 -- クリップボード設定
 vim.opt.clipboard = "unnamedplus"
 
--- 更新時間
-vim.opt.updatetime = 360
+-- -- 更新時間
+-- vim.opt.updatetime = 360
 
 -- コマンド表示設定
 -- vim.opt.showcmd = true
@@ -58,9 +58,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 		vim.cmd("silent! write")
 	end,
 })
-
--- vim.api.nvim_create_autocmd('CursorHold', {
---   callback = function()
---     vim.cmd('silent! write')
---   end
--- })

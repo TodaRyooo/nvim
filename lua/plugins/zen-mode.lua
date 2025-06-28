@@ -11,8 +11,4 @@ return {
 	config = function()
 		key("n", "<space><space>z", ":ZenMode<CR>", { noremap = true })
 	end,
-
-	-- callback = function()
-	-- 	require("zen-mode").toggle({})
-	-- end,
 }

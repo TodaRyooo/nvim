@@ -2,9 +2,12 @@ local key = require("utils").key
 
 -- インサートモードのマッピング
 key("i", "<C-w>", " => ", { noremap = true })
-key("i", "<C-v>", "{}<Left>", { noremap = true })
-key("i", "<C-b>", "[]<Left>", { noremap = true })
-key("i", "<C-n>", "()<Left>", { noremap = true })
+-- key("i", "<C-v>", "{}<Left>", { noremap = true })
+-- key("i", "<C-b>", "[]<Left>", { noremap = true })
+-- key("i", "<C-n>", "()<Left>", { noremap = true })
+-- key("i", "<C-m>", "j", { noremap = true })
+key("i", "<C-b>", "{}", { noremap = true })
+key("i", "<C-n>", "()", { noremap = true })
 key("i", "<C-s>", ",", { noremap = true })
 key("i", "<C-d>", "<BS>", { noremap = true })
 key("i", "<C-f>", ".", { noremap = true })

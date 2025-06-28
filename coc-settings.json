@@ -1,0 +1,6 @@
+{
+  "go.goplsOptions": {
+    "completeUnimported": false,
+    "staticcheck": false
+  }
+}

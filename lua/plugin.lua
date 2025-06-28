@@ -40,7 +40,7 @@ require("lazy").setup({
 	require("plugins.toggleterm"),
 	require("plugins.vim-fugitive"),
 	require("plugins.zen-mode"),
-	require("plugins.dashboard-nvim"),
+	-- require("plugins.dashboard-nvim"),
 })
 
 -- NERDTree
@@ -81,20 +81,24 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	end,
 })
 
+vim.g.coc_preferences = vim.g.coc_preferences or {}
+vim.g.coc_preferences["formatOnSaveFiletypes"] = vim.g.coc_preferences["formatOnSaveFiletypes"] or {}
+vim.g.coc_preferences.formatOnSave = false
+
 -- closetagの設定
 -- vim.g.closetag_filenames = "*.tsx,*.jsx"
 -- vim.g.closetag_shortcut = ">"
 -- vim.g.closetag_enable_react_fragment = 1
 
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		vim.cmd("silent call CocActionAsync('highlight')")
-	end,
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+-- 	callback = function()
+-- 		vim.cmd("silent call CocActionAsync('highlight')")
+-- 	end,
+-- })
 
-require("dashboard").setup({
-	header = "qwe",
-})
+-- require("dashboard").setup({
+-- 	header = "qwe",
+-- })
 
 -- 自動保存設定
 -- vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
