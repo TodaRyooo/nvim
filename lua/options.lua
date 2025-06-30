@@ -3,7 +3,7 @@ local opt = utils.set
 local cmd = utils.cmd
 
 -- NOTE 基本設定
-cmd("colorscheme everforest")
+cmd("colorscheme cyberdream")
 cmd("syntax enable")
 cmd("filetype plugin indent on")
 opt.helplang = "ja"
@@ -11,6 +11,7 @@ opt.clipboard = "unnamedplus"
 opt.mouse = "a"
 opt.termguicolors = true
 opt.swapfile = false
+-- opt.background = "light"
 
 -- NOTE タブやインデント関連の設定
 cmd("set nowrap")
@@ -48,15 +49,3 @@ cmd("hi! FloatBorder ctermfg=236 ctermbg=253 guifg=#303030 guibg=#dadada")
 cmd("hi! LineNr ctermfg=253 ctermbg=none guifg=#dadada guibg=none")
 cmd("hi! CursorLineNr ctermfg=237 ctermbg=253 guifg=#3a3a3a guibg=#dadada")
 cmd("hi! Boolean  ctermfg=171 guifg=#d75fff")
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-	callback = function()
-		cmd("silent! write")
-	end,
-})
-
--- vim.api.nvim_create_autocmd('CursorHold', {
---   callback = function()
---     vim.cmd('silent! write')
---   end
--- })

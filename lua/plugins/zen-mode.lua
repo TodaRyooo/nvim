@@ -2,6 +2,7 @@ local key = require("utils").key
 
 return {
 	"folke/zen-mode.nvim",
+  lazy = false,
 	opts = {
 		window = {
 			width = 500,
@@ -11,8 +12,4 @@ return {
 	config = function()
 		key("n", "<space><space>z", ":ZenMode<CR>", { noremap = true })
 	end,
-
-	-- callback = function()
-	-- 	require("zen-mode").toggle({})
-	-- end,
 }

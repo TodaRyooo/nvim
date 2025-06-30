@@ -1,5 +1,6 @@
 return {
 	"sbdchd/neoformat",
+	lazy = false,
 
 	config = function()
 		vim.g.neoformat_enabled_javascript = { "prettier" }
@@ -10,11 +11,11 @@ return {
 		vim.g.neoformat_enabled_html = { "prettier" }
 		vim.g.neoformat_try_node_exe = 1
 
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = "*.js,*.ts,*.jsx,*.tsx,*.scss,*.json,*.lua,*.html",
-			callback = function()
-				vim.cmd("Neoformat")
-			end,
-		})
+		-- vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 	pattern = "*.js,*.ts,*.jsx,*.tsx,*.scss,*.json,*.lua,*.html",
+		-- 	callback = function()
+		-- 		vim.cmd("Neoformat")
+		-- 	end,
+		-- })
 	end,
 }

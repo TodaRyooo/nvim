@@ -1,5 +1,6 @@
 return {
 	"potamides/pantran.nvim",
+  lazy = false,
 	keys = {
 		{ "<space>tr", "<cmd>Pantran<CR>", mode = { "n", "v" }, desc = "Show Translate Window" },
 	},
