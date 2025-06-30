@@ -10,8 +10,4 @@ return {
 	},
 	lazy = false,
 	opts = {},
-
-	config = function()
-		key("n", "<C-q>", ":Neotree toggle left reveal_force_cwd<cr>", { silent = true })
-	end,
 }
