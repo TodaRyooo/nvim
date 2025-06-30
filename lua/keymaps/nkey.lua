@@ -2,13 +2,12 @@ local key = require("utils").key
 
 -- ショートカット
 key("n", "zx", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
-key("n", "<C-p>", ":set laststatus=3<CR>", { noremap = true })
 key("n", "<C-e>", ":w<CR>", { noremap = true })
 
 -- ウィンドウ操作
 key("n", "<C-l>", "gt", { noremap = true })
 key("n", "<C-h>", "gT", { noremap = true })
-key("n", "<C-q>", "<C-^>", { noremap = true })
+key("n", "<C-p>", "<C-^>", { noremap = true })
 
 -- arg周り
 key("n", "<space><space>a", ":argadd %<CR>", { noremap = true })
@@ -31,8 +30,8 @@ key("n", "<C-s>", [[:lua CompleteUseState()<CR> :w<CR>]], { noremap = true, sile
 key("n", "<C-i>", [[:lua YankFileName()<CR>]], { noremap = true, silent = true })
 
 -- ALE
-key("n", "<Right>", ":ALENextWrap <CR>", { noremap = true })
-key("n", "<Left>", ":ALEPreviousWrap <CR>", { noremap = true })
+key("n", "<Right>", ":ALENextWrap <CR>", { noremap = true, silent = true })
+key("n", "<Left>", ":ALEPreviousWrap <CR>", { noremap = true, silent = true })
 
 -- Google検索
 key("n", "<space><space>g", ":OpenBrowserSearch ", { noremap = true })
@@ -42,11 +41,11 @@ key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<C
 
 -- NERDTree
 -- key("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
-key("n", "<C-t>", ":Neotree toggle reveal_force_cwd<CR>", { noremap = true })
+key("n", "<C-t>", ":Neotree toggle reveal_force_cwd<CR>", { noremap = true, silent = true })
+-- telescopeのfind_files機能を使う方法に移行
 -- key("n", "<space><space>f", ":NERDTreeFind ", { noremap = true })
-key("n", "<space>x", ":Neotree reveal<CR>", { noremap = true })
+key("n", "<space>x", ":Neotree reveal<CR>", { noremap = true, silent = true })
 -- key("n", "<space>x", ":NERDTreeFind %<CR>", { noremap = true })
--- key("n", "<space><space>x", ":NERDTreeFind %<CR><ESC>s:NERDTreeToggle<CR><C-k>", { noremap = true })
 
 -- -- Pantran
 -- key("n", "<space>tr", ":Pantran<CR>", { noremap = true })

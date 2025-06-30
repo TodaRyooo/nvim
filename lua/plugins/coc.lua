@@ -3,6 +3,7 @@ local key = require("utils").key
 return {
 	"neoclide/coc.nvim",
 	branch = "release",
+	lazy = false,
 
 	config = function()
 		vim.g.coc_global_extensions = {

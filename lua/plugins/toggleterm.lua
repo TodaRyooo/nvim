@@ -2,6 +2,7 @@ local key = require("utils").key
 
 return {
 	"akinsho/toggleterm.nvim",
+	lazy = false,
 
 	config = function()
 		require("toggleterm").setup({

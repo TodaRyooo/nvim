@@ -10,47 +10,49 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 
-vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({
-	require("plugins.nvim-web-devicons"),
-	require("plugins.ale"),
-	require("plugins.alpha-nvim"),
-	require("plugins.blamer"),
-	require("plugins.Comment"),
-	require("plugins.coc"),
-	require("plugins.cyberdream"),
-	require("plugins.everforest-nvim"),
-	require("plugins.gitsigns"),
-	require("plugins.hop"),
-	-- require("plugins.indent-blankline"),
-	require("plugins.lualine"),
-	require("plugins.mini"),
-	require("plugins.neoformat"),
-	require("plugins.neoscroll"),
-	require("plugins.neo-tree"),
-	require("plugins.nerdtree"),
-	require("plugins.nightfox"),
-	require("plugins.noice"),
-	-- require("plugins.nvim-lint"),
-	require("plugins.nvim-notify"),
-	require("plugins.nvim-surround"),
-	-- require("plugins.nvim-treesitter"),
-	require("plugins.nvim-ts-autotag"),
-	require("plugins.open-browser"),
-	require("plugins.render-markdown"),
-	-- require("plugins.showkeys"),
-	require("plugins.smear-cursor"),
-	require("plugins.spelunker"),
-	require("plugins.telescope"),
-	require("plugins.toggleterm"),
-	require("plugins.vim-fugitive"),
-	require("plugins.vim-table-mode"),
-	require("plugins.zen-mode"),
-	require("plugins.pantran"),
+local plugins_table = {}
 
-	{ "vim-jp/vimdoc-ja" },
-	-- require("plugins.dashboard-nvim"),
-})
+table.insert(plugins_table, { require("plugins.nvim-web-devicons") })
+table.insert(plugins_table, { require("plugins.ale") })
+table.insert(plugins_table, { require("plugins.alpha-nvim") })
+table.insert(plugins_table, { require("plugins.blamer") })
+table.insert(plugins_table, { require("plugins.Comment") })
+table.insert(plugins_table, { require("plugins.coc") })
+table.insert(plugins_table, { require("plugins.cyberdream") })
+table.insert(plugins_table, { require("plugins.everforest-nvim") })
+table.insert(plugins_table, { require("plugins.gitsigns") })
+table.insert(plugins_table, { require("plugins.hop") })
+table.insert(plugins_table, { require("plugins.lualine") })
+table.insert(plugins_table, { require("plugins.mini") })
+table.insert(plugins_table, { require("plugins.neoscroll") })
+table.insert(plugins_table, { require("plugins.neo-tree") })
+table.insert(plugins_table, { require("plugins.nerdtree") })
+table.insert(plugins_table, { require("plugins.nightfox") })
+table.insert(plugins_table, { require("plugins.noice") })
+table.insert(plugins_table, { require("plugins.none-ls") })
+table.insert(plugins_table, { require("plugins.nvim-notify") })
+table.insert(plugins_table, { require("plugins.nvim-surround") })
+table.insert(plugins_table, { require("plugins.nvim-ts-autotag") })
+table.insert(plugins_table, { require("plugins.open-browser") })
+table.insert(plugins_table, { require("plugins.render-markdown") })
+table.insert(plugins_table, { require("plugins.smear-cursor") })
+table.insert(plugins_table, { require("plugins.spelunker") })
+table.insert(plugins_table, { require("plugins.telescope") })
+table.insert(plugins_table, { require("plugins.toggleterm") })
+table.insert(plugins_table, { require("plugins.vim-fugitive") })
+table.insert(plugins_table, { require("plugins.vim-table-mode") })
+table.insert(plugins_table, { require("plugins.zen-mode") })
+table.insert(plugins_table, { require("plugins.pantran") })
+table.insert(plugins_table, { "vim-jp/vimdoc-ja" })
+-- table.insert(plugins, { require("plugins.neoformat") })
+-- require("plugins.indent-blankline"),
+-- require("plugins.nvim-lint"),
+-- require("plugins.nvim-treesitter"),
+-- require("plugins.showkeys"),
+-- require("plugins.dashboard-nvim"),
+
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup(plugins_table)
 
 -- NERDTree
 vim.g.Nvimwebdevicons_enable_nerdtree = 1
@@ -75,31 +77,7 @@ vim.g.airline_extensions_ale_enabled = 1
 
 vim.api.nvim_create_autocmd({ "VimEnter", "SourcePost" }, {
 	callback = function()
-		-- vim.cmd('highlight! ALEError ctermfg=7 ctermbg=160 guifg=#ffffff guibg=#d7005f')
-		-- vim.cmd('highlight! ALEWarning ctermfg=232 ctermbg=154 guifg=#080808 guibg=#afd700')
 		vim.cmd("highlight! ALEVirtualTextError ctermfg=7 ctermbg=160 guifg=#ffffff guibg=#d7005f")
 		vim.cmd("highlight! ALEVirtualTextWarning ctermfg=232 ctermbg=154 guifg=#080808 guibg=#afd700")
 	end,
 })
-
--- jsx, tsxのシンタックスハイライト設定
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = "*.jsx,*.tsx",
-	callback = function()
-		vim.bo.filetype = "typescriptreact"
-	end,
-})
-
--- vim.api.nvim_create_autocmd("CursorHold", {
--- 	callback = function()
--- 		vim.cmd("silent call CocActionAsync('highlight')")
--- 	end,
--- })
-
--- 自動保存設定
--- vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
---   callback = function()
---     vim.cmd('silent! write')
---   end
--- })
---

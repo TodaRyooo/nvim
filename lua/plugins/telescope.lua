@@ -2,6 +2,7 @@ local key = require("utils").key
 
 return {
 	"nvim-telescope/telescope.nvim",
+  lazy = false,
 	tag = "0.1.8",
 	dependencies = {
 		{ "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
