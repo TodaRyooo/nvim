@@ -29,15 +29,15 @@ key("n", "<Down>", ":m .+1<CR>", { noremap = true, silent = true })
 key("n", "<C-s>", [[:lua CompleteUseState()<CR> :w<CR>]], { noremap = true, silent = true })
 key("n", "<C-i>", [[:lua YankFileName()<CR>]], { noremap = true, silent = true })
 
--- ALE
-key("n", "<Right>", ":ALENextWrap <CR>", { noremap = true, silent = true })
-key("n", "<Left>", ":ALEPreviousWrap <CR>", { noremap = true, silent = true })
+-- -- ALE
+-- key("n", "<Right>", ":ALENextWrap <CR>", { noremap = true, silent = true })
+-- key("n", "<Left>", ":ALEPreviousWrap <CR>", { noremap = true, silent = true })
 
 -- Google検索
 key("n", "<space><space>g", ":OpenBrowserSearch ", { noremap = true })
 
 -- markdownのプレビュー
-key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<CR>", { noremap = true })
+-- key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<CR>", { noremap = true })
 
 -- NERDTree
 -- key("n", "<C-t>", ":NERDTreeToggle<CR>", { noremap = true })
