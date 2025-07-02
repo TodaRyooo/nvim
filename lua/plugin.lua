@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
 end
 
 local plugins_table = {}
@@ -31,10 +31,11 @@ table.insert(plugins_table, { require("plugins.none-ls") })
 table.insert(plugins_table, { require("plugins.nvim-notify") })
 table.insert(plugins_table, { require("plugins.nvim-surround") })
 table.insert(plugins_table, { require("plugins.nvim-ts-autotag") })
+-- table.insert(plugins_table, { require("plugins.nvim-lint") })
 table.insert(plugins_table, { require("plugins.open-browser") })
 table.insert(plugins_table, { require("plugins.render-markdown") })
 table.insert(plugins_table, { require("plugins.smear-cursor") })
-table.insert(plugins_table, { require("plugins.spelunker") })
+-- table.insert(plugins_table, { require("plugins.spelunker") })
 table.insert(plugins_table, { require("plugins.telescope") })
 table.insert(plugins_table, { require("plugins.tokyonight") })
 table.insert(plugins_table, { require("plugins.vim-fugitive") })
