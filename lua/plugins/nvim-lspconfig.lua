@@ -23,12 +23,12 @@ return {
 			},
 		})
 
-		lspconfig.ts_ls.setup({})
-		lspconfig.eslint.setup({
-			settings = {
-				enable = true,
-			},
-		})
+		-- lspconfig.ts_ls.setup({})
+		-- lspconfig.eslint_d.setup({
+		-- 	settings = {
+		-- 		enable = true,
+		-- 	},
+		-- })
 		lspconfig.cssls.setup({})
 
 		-- オプション: 一般的なLSPアクションのキーバインド (このファイルにまとめるのが良い)
