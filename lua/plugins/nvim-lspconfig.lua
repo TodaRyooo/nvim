@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
+		-- "saghen/blink.cmp",
 	},
 	config = function()
 		require("mason").setup()
@@ -22,16 +23,6 @@ return {
 				},
 			},
 		})
-
-		lspconfig.ts_ls.setup({
-			settings = {},
-		})
-
-		-- lspconfig.eslint_d.setup({
-		--   settings = {
-		--     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		--   },
-		-- })
 
 		-- オプション: 一般的なLSPアクションのキーバインド (このファイルにまとめるのが良い)
 		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })

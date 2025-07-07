@@ -20,8 +20,8 @@ key("n", "<space>l", "$", { noremap = true })
 key("n", "<C-]>", "ggVG", { noremap = true })
 
 -- Git の操作
-key("n", "<space>gd", ":Gdiff<CR>", { noremap = true })
-key("n", "<space>gs", ":vert G show ", { noremap = true })
+-- key("n", "<space>gd", ":Gdiff<CR>", { noremap = true })
+-- key("n", "<space>gs", ":vert G show ", { noremap = true })
 
 -- 行に関する操作
 key("n", "<Up>", ":m .-2<CR>", { noremap = true, silent = true })
@@ -34,7 +34,7 @@ key("n", "<C-i>", [[:lua YankFileName()<CR>]], { noremap = true, silent = true }
 -- key("n", "<Left>", ":ALEPreviousWrap <CR>", { noremap = true, silent = true })
 
 -- Google検索
-key("n", "<space><space>g", ":OpenBrowserSearch ", { noremap = true })
+key("n", "<space><space>o", ":OpenBrowserSearch ", { noremap = true })
 
 -- markdownのプレビュー
 -- key("n", "<space><space>m", ":CocCommand markdown-preview-enhanced.openPreview<CR>", { noremap = true })
