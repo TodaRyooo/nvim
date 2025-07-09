@@ -9,7 +9,7 @@ return {
 
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
-			ensure_installed = { "lua_ls", "ts_ls" },
+			ensure_installed = { "lua_ls", "ts_ls", "markdown_oxide" },
 		})
 
 		local lspconfig = require("lspconfig")

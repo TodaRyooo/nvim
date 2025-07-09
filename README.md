@@ -19,10 +19,10 @@
 
 ### ファイラ操作
 
-**\<C-t\>** `:NERDTreeToggle<CR>`
+**\<C-t\>** `:Neotree toggle reveal_force_cwd<CR>`
 - ファイラを開く
 
-**\<space\>x** `:NERDTreeFind %<CR>`
+**\<space\>x** `:Neotree reveal<CR>`
 - 今いるファイルをファイラから探す
 
 ### arg系
@@ -55,19 +55,22 @@
 - ジャンプしたい先の文字を一文字入力すると候補が現れる. ジャンプしたい先に表示されている文字を押してカーソルを移動
     - 使用プラグイン: [smoka7/hop.nvim](https://github.com/smoka7/hop.nvim)
 
-コメントアウト系は[numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)を参考に...
+コメントアウト系は[mini.comment](https://github.com/echasnovski/mini.comment)を参考に...
+<!-- コメントアウト系は[numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)を参考に... -->
 
 ### Git操作系
 
-**\<space\>gd**  `:Gdiff<CR>`
+**\<space\>gd**  `:Gitsigns diffthis<CR>`
 - 今いるファイルの`git diff`を実行
 
-**\<space\>gs**  `:vert G show `
+**\<space\>gb** `:Gitsigns blame<CR>`
+- git blameを実行する
+
+**\<space\>gs**  `:Gitsigns show_commit `
 - git showを行う. コミットハッシュを入力した後Enterで表示
 
-**\<space\>q** `:BlamerToggle<CR>`
-- 今いるファイルにgit blameを実行する
-    - 使用プラグイン: [APZelos/blamer.nvim](https://github.com/APZelos/blamer.nvim)
+**\<space\>q** `:Gitsigns toggle_current_line_blame<CR>`
+- 今いるファイルにgit blameを行単位で実行する
 
 ### 行に関する操作
 
@@ -82,16 +85,6 @@
 
 **\<C-i\>**  `:lua YankFileName()<CR>`
 - カーソルが置いてあるファイルのフルパスをクリップボードにコピーする
-
-
-### ALE(リンター)系
-使用プラグイン: [dense-analysis/ale](https://github.com/dense-analysis/ale)
-
-**\<Right\>** `:ALENextWrap <CR>` 
-- 次のリンターのエラー/警告まで移動する
-
-**\<Left\>** `:ALEPreviousWrap <CR>`
-- 前のリンターのエラー/警告まで移動する
 
 ### telescope系
 
@@ -115,20 +108,27 @@
 **\<space\>\<space\>tc** `:Telescope commands<CR>`
 - コマンドラインモードで打てるコマンドを表示・選択する
 
-### COC系
-使用プラグイン: [neoclide/coc.nvim](https://github.com/neoclide/coc.nvim)
-
-**\<C-j\>** `:call CocActionAsync('definitionHover')<CR>`
+### lsp系
+**\<C-j\>** `:Lspsaga peek_definition<CR>`
 - カーソル下の変数や関数等の定義をポップアップで表示する
 
-**\<C-g\>** `<Plug>(coc-references)`
-- カーソル下の変数や関数等がどこで使われているかをウィンドウ下部に表示する
+**grr** `:Lspsaga finder<CR>`
+- カーソル下の変数や関数等がどこで使われているかを表示する
 
-**\<C-k\>** `<Plug>(coc-definition)`
+**\<C-k\>** `:Lspsaga goto_definition<CR>`
 - カーソル下の変数や関数等が定義されている箇所へジャンプする
 
-**\<space\>fj** `<Plug>(coc-rename)`
+**grn** `:Lspsaga rename<CR>`
 - 変数名を新しく入力したものに置換する
+
+**[d**または**]d** `:Lspsaga diagnostic_jump_prev<CR>` `:Lspsaga diagnostic_jump_next<CR>`
+- リンターエラーがかかっている箇所へジャンプする
+
+**\<space\>ca** `:Lspsaga code_action<CR>`
+- コードアクションを実行する
+
+**K** `:Lspsaga hover_doc<CR>`
+- ドキュメントを表示する
 
 ### nvim-surround系
 
@@ -170,18 +170,9 @@ const hoge, setHoge = useState(false)
 - Google検索を行うための入力欄を出す. キーワード入力後Enterで検索
     - 使用プラグイン: [tyru/open-browser.vim](https://github.com/tyru/open-browser.vim)
 
-**\<space\>\<space\>m** `:CocCommand markdown-preview-enhanced.openPreview<CR>`
-- mdファイルをブラウザでリアルタイムプレビューする
-    - 使用プラグイン: [MeanderingProgrammer/render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
-    - `:CocInstall coc-markdown-preview-enhanced`をする必要あり
-
-**\<space\>\<space\>w** `:ToggleTerm<CR>`
+**\<space\>\<space\>w** `:Lspsaga term_toggle<CR>`
 - Neovim内でターミナルを起動させる
     - 使用プラグイン: [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-
-**\<space\>\<space\>z** `:ZenMode<CR>`
-- Zenモードを起動する
-    - 使用プラグイン: [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 
 ## 🚀インサートモードのキー操作
 
