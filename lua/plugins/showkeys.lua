@@ -1,5 +1,0 @@
--- return {
--- 	"nvzone/showkeys",
--- 	cmd = "ShowkeysToggle",
--- 	config = { maxkeys = 6 },
--- }
