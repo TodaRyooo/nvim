@@ -11,4 +11,4 @@ key("i", "<C-j>", "<Down>", { noremap = true })
 key("i", "<C-k>", "<Up>", { noremap = true })
 key("i", "<C-l>", "<Right>", { noremap = true })
 
-key("i", "<C-e>", "<ESC>:w<CR>", { noremap = true })
+key("i", "<C-e>", "<ESC><ESC>:w<CR>", { noremap = true })
