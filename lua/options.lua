@@ -3,7 +3,8 @@ local opt = utils.set
 local cmd = utils.cmd
 
 -- NOTE 基本設定
-cmd("colorscheme tokyonight-moon")
+-- cmd("colorscheme tokyonight-moon")
+cmd("colorscheme gruvbox")
 cmd("syntax enable")
 cmd("filetype plugin indent on")
 opt.helplang = "ja"

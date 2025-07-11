@@ -14,6 +14,7 @@ return {
         b.formatting.stylelint,
         b.formatting.shfmt,
         b.formatting.gofmt,
+        b.formatting.markdownlint,
         -- b.diagnostics.eslint_d,
         b.completion.spell,
       },
