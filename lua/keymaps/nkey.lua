@@ -3,6 +3,7 @@ local key = require("utils").key
 -- ショートカット
 key("n", "zx", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
 key("n", "<C-e>", ":w<CR>", { noremap = true })
+key("n", "gmks", ":lua MiniSessions.write('')<Left><Left>", { noremap = true })
 
 -- ウィンドウ操作
 key("n", "<C-l>", "gt", { noremap = true })

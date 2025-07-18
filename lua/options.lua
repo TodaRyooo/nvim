@@ -43,3 +43,6 @@ opt.updatetime = 360
 cmd("hi! MatchParen cterm=bold gui=bold ctermfg=201 guifg=#ff00ff")
 cmd("hi! Visual cterm=bold gui=bold ctermfg=236 ctermbg=253 guifg=#303030 guibg=#dadada")
 cmd("hi! Boolean  ctermfg=171 guifg=#d75fff")
+
+-- autocmd系
+vim.api.nvim_create_autocmd("VimEnter", { command = "ShowkeysToggle" })

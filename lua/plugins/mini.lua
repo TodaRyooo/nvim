@@ -7,5 +7,7 @@ return {
 		require("mini.git").setup()
 		require("mini.clue").setup()
 		require("mini.comment").setup()
+		require("mini.sessions").setup()
+		require("mini.starter").setup()
 	end,
 }

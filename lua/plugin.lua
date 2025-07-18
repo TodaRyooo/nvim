@@ -12,12 +12,12 @@ end
 
 local plugins_table = {}
 
+for _, colorscheme in ipairs(require("plugins.colorschemes")) do
+	table.insert(plugins_table, colorscheme)
+end
+
 table.insert(plugins_table, { require("plugins.nvim-web-devicons") })
-table.insert(plugins_table, { require("plugins.alpha-nvim") })
-table.insert(plugins_table, { require("plugins.everforest-nvim") })
 table.insert(plugins_table, { require("plugins.gitsigns") })
--- table.insert(plugins_table, { require("plugins.glare") })
-table.insert(plugins_table, { require("plugins.gruvbox") })
 table.insert(plugins_table, { require("plugins.hop") })
 table.insert(plugins_table, { require("plugins.lspsaga") })
 table.insert(plugins_table, { require("plugins.lualine") })
@@ -33,11 +33,9 @@ table.insert(plugins_table, { require("plugins.nvim-ts-autotag") })
 table.insert(plugins_table, { require("plugins.open-browser") })
 table.insert(plugins_table, { require("plugins.markdown-preview") })
 table.insert(plugins_table, { require("plugins.render-markdown") })
--- table.insert(plugins_table, { require("plugins.smear-cursor") })
--- table.insert(plugins_table, { require("plugins.specs") })
+table.insert(plugins_table, { require("plugins.showkeys") })
 table.insert(plugins_table, { require("plugins.telescope") })
 table.insert(plugins_table, { require("plugins.tiny-inline-diagnostic") })
-table.insert(plugins_table, { require("plugins.tokyonight") })
 table.insert(plugins_table, { require("plugins.vim-table-mode") })
 table.insert(plugins_table, { require("plugins.pantran") })
 table.insert(plugins_table, { "vim-jp/vimdoc-ja" })
