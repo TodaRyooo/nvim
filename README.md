@@ -22,6 +22,22 @@
 
 - 一つ前に開いていたファイルと今開いているファイルを切り替える
 
+**\<Up\>**  `<C-w>+`
+
+- 今いるウィンドウを縦方向に拡大させる
+
+**\<Down\>**  `<C-w>-`
+
+- 今いるウィンドウを縦方向に縮小させる
+
+**\<Left\>**  `<C-w>>`
+
+- 今いるウィンドウを横方向に拡大させる
+
+**\<Right\>**  `<C-w><`
+
+- 今いるウィンドウを横方向に縮小させる
+
 ### ファイラ操作
 
 **\<C-t\>** `:Neotree toggle reveal_force_cwd<CR>`
@@ -60,7 +76,7 @@
 
 - ファイル全体の文字を選択
 
-**'l** もしくは **]l** `:HopLine<cr>`
+**'j** もしくは **]j** `:HopLine<cr>`
 
 - ジャンプしたい行に表示されている文字を押してカーソルを移動
   - 使用プラグイン: [smoka7/hop.nvim](https://github.com/smoka7/hop.nvim)
@@ -71,7 +87,6 @@
   - 使用プラグイン: [smoka7/hop.nvim](https://github.com/smoka7/hop.nvim)
 
 コメントアウト系は[mini.comment](https://github.com/echasnovski/mini.comment)を参考に...
-<!-- コメントアウト系は[numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)を参考に... -->
 
 ### Git操作系
 
@@ -92,14 +107,6 @@
 - 今いるファイルにgit blameを行単位で実行する
 
 ### 行に関する操作
-
-**\<Up\>**  `:m .-2<CR>`
-
-- カーソルがある行を一行上に移動させる
-
-**\<Down\>**  `:m .+1<CR>`
-
-- カーソルがある行を一行下に移動させる
 
 **\<C-s\>**  `:lua CompleteUseState()<CR> :w<CR>`
 
@@ -265,6 +272,6 @@ const hoge, setHoge = useState(false)
 
 ### その他
 
-**\<C-e\>** `<ESC><ESC>:w<CR>`
+**\<C-e\>** `<ESC>:w<CR>`
 
 - ファイルを保存しインサートモードを抜ける
