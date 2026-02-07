@@ -15,7 +15,8 @@ return {
         b.formatting.shfmt,
         b.formatting.gofmt,
         b.formatting.markdownlint,
-        -- b.diagnostics.eslint_d,
+        b.formatting.yamlfmt,
+        b.formatting.postgres_lsp,
         b.completion.spell,
       },
 

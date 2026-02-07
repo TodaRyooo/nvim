@@ -9,19 +9,19 @@ return {
 
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
-			ensure_installed = { "lua_ls", "ts_ls", "markdown_oxide" },
+			ensure_installed = { "lua_ls", "ts_ls", "markdown_oxide", "html", "yamlls", "go", "postgres_lsp" },
 		})
 
 		local lspconfig = require("lspconfig")
-		lspconfig.lua_ls.setup({
-			settings = {
-				Lua = {
-					diagnostics = { globals = { "vim" } },
-					workspace = { checkThirdParty = false },
-					telemetry = { enable = false },
-				},
-			},
-		})
+		-- lspconfig.lua_ls.setup({
+		--   settings = {
+		--     Lua = {
+		--       diagnostics = { globals = { "vim" } },
+		--       workspace = { checkThirdParty = false },
+		--       telemetry = { enable = false },
+		--     },
+		--   },
+		-- })
 
 		-- lspconfig.ts_ls.setup({})
 		-- lspconfig.eslint_d.setup({
