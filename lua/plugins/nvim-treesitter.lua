@@ -4,13 +4,11 @@ return {
   lazy = false,
   build = ":TSUpdate",
 
-  configs = function()
+  config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "markdown",
         "markdown_inline",
-        "blade",
-        "php",
         "python",
       },
       sync_install = true,
