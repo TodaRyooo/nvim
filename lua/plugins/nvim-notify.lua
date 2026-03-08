@@ -1,11 +1,11 @@
 return {
-	"rcarriga/nvim-notify",
+  "rcarriga/nvim-notify",
   lazy = false,
 
-	config = function()
-		require("notify").setup({
-			timeout = 3000,
-			stages = "static",
-		})
-	end,
+  config = function()
+    require("notify").setup({
+      timeout = 3000,
+      stages = "static",
+    })
+  end,
 }

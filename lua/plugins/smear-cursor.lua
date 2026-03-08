@@ -1,8 +1,8 @@
 return {
-	"sphamba/smear-cursor.nvim",
+  "sphamba/smear-cursor.nvim",
   lazy = false,
 
-	init = function()
-		require("smear_cursor").setup()
-	end,
+  init = function()
+    require("smear_cursor").setup()
+  end,
 }
