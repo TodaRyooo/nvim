@@ -12,6 +12,23 @@ return {
 		end,
 	},
 
+<<<<<<< HEAD
+=======
+	-- cyberdream
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("cyberdream").setup({
+				-- variant = "light",
+				italic_comments = true,
+				transparent = true,
+			})
+		end,
+	},
+
+>>>>>>> e804727 (260309)
 	-- gruvbox
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -31,4 +48,20 @@ return {
 		priority = 1000,
 		opts = {},
 	},
+<<<<<<< HEAD
+=======
+
+	-- onedark
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000,
+		config = function()
+			require("onedark").setup({
+				style = "warmer",
+				transparent = true,
+			})
+			require("onedark").load()
+		end,
+	},
+>>>>>>> e804727 (260309)
 }

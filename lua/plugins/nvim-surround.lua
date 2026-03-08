@@ -1,4 +1,5 @@
 return {
+<<<<<<< HEAD
   "kylechui/nvim-surround",
   lazy = false,
   version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
@@ -8,4 +9,15 @@ return {
       -- Configuration here, or leave empty to use defaults
     })
   end,
+=======
+	"kylechui/nvim-surround",
+  lazy = false,
+	version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+	event = "VeryLazy",
+	config = function()
+		require("nvim-surround").setup({
+			-- Configuration here, or leave empty to use defaults
+		})
+	end,
+>>>>>>> e804727 (260309)
 }

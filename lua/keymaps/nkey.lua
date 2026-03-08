@@ -33,4 +33,5 @@ key("n", "<space><space>g", ":OpenBrowserSearch ", { noremap = true })
 
 -- NeoTree
 key("n", "<C-t>", ":Neotree toggle reveal_force_cwd<CR>", { noremap = true, silent = true })
+-- key("n", "<C-t>", ":Neotree toggle reveal_force_cwd<CR>", { noremap = true, silent = true })
 key("n", "<space>x", ":Neotree reveal<CR>", { noremap = true, silent = true })

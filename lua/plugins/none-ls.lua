@@ -9,11 +9,18 @@ return {
     null_ls.setup({
       diagnostics_format = "[#{m}] #{s} (#{c})",
       sources = {
+<<<<<<< HEAD
         b.formatting.prettier,
+=======
+        b.formatting.prettier.with({
+          cwd = vim.lsp.buf.server_ready and vim.lsp.buf.get_clients()[1].root_dir or vim.loop.cwd(),
+        }),
+>>>>>>> e804727 (260309)
         b.formatting.stylua,
         b.formatting.stylelint,
         b.formatting.shfmt,
         b.formatting.gofmt,
+<<<<<<< HEAD
         b.formatting.markdownlint,
         b.formatting.yamlfmt,
         b.formatting.postgres_lsp,
@@ -32,6 +39,47 @@ return {
           })
         end
       end,
+=======
+        b.formatting.rubocop,
+        b.formatting.pint,
+        b.formatting.blade_formatter,
+        b.formatting.erb_format,
+        b.formatting.rubyfmt,
+        b.formatting.black,
+        b.formatting.markdownlint,
+
+        -- .with({
+        -- filetypes = { "blade", "blade.php" },
+        -- extra_args = {
+        --   "--rules=@PSR2",
+        --   "--indent-with-space",
+        --   "--set-indent=2",
+        -- },
+        -- }),
+        -- b.diagnostics.eslint_d,
+        b.diagnostics.flake8,
+        b.diagnostics.erb_lint,
+
+        b.completion.spell,
+      },
+
+      -- vim.keymap.set("n", "<space>e", function()
+      --   vim.lsp.buf.format()
+      -- end),
+
+      -- on_attach = function(client, bufnr)
+      -- 	if client.supports_method("textDocument/formatting") then
+      -- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      -- 		vim.api.nvim_create_autocmd("BufWritePre", {
+      -- 			group = augroup,
+      -- 			buffer = bufnr,
+      -- 			callback = function()
+      -- 				vim.lsp.buf.format()
+      -- 			end,
+      -- 		})
+      -- 	end
+      -- end,
+>>>>>>> e804727 (260309)
     })
   end,
 }
