@@ -1,72 +1,79 @@
 return {
-	"mason-org/mason-lspconfig.nvim",
-	opts = {},
-	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
-		-- "neovim/nvim-lspconfig",
-	},
+  "mason-org/mason-lspconfig.nvim",
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
+  },
+  config = function()
+    require("mason-lspconfig").setup({
+      automatic_installation = false,
+      ensure_installed = {
+        "ts_ls",
+        "lua_ls",
+        "gopls",
+        "cssls",
+        "tailwindcss",
+        "bashls",
+      },
+    })
 
-	config = function()
-		local ensure_installed = { "ts_ls", "lua_ls" }
-		require("mason-lspconfig").setup({
-			automatic_installation = true,
-			ensure_installed = ensure_installed,
-		})
+    -- lua
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = { globals = { "vim" } },
+          workspace = { checkThirdParty = false },
+          telemetry = { enable = false },
+        },
+      },
+    })
+    vim.lsp.enable("lua_ls")
 
-		-- luaの設定
-		vim.lsp.config("lua_ls", {
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-				},
-			},
-		})
-		vim.lsp.enable("lua_ls")
+    -- typescript
+    vim.lsp.config("ts_ls", {
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      },
+      root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+    })
+    vim.lsp.enable("ts_ls")
 
-		-- typescriptの設定
-		vim.lsp.config("ts_ls", {
-			filetypes = {
-				"javascript",
-				"javascriptreact",
-				"javascript.jsx",
-				"typescript",
-				"typescriptreact",
-				"typescript.tsx",
-			},
-			root_markers = {
-				"tsconfig.json",
-				"jsconfig.json",
-				"package.json",
-				".git",
-			},
-		})
-		vim.lsp.enable("ts_ls")
+    -- go
+    vim.lsp.enable("gopls")
 
-		-- cssの設定
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-		vim.lsp.config("cssls", {
-			capabilities = capabilities,
-			filetypes = {
-				"css",
-				"scss",
-			},
-			init_option = {
-				providerFormatter = true,
-			},
-			root_markers = {
-				"package.json",
-				".git",
-			},
-		})
-		vim.lsp.enable("cssls")
+    -- css
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    vim.lsp.config("cssls", {
+      capabilities = capabilities,
+      filetypes = { "css", "scss" },
+      root_markers = { "package.json", ".git" },
+    })
+    vim.lsp.enable("cssls")
 
-		-- tailwindcssの設定
-		vim.lsp.enable("tailwindcss")
+    -- tailwindcss
+    vim.lsp.enable("tailwindcss")
 
-		-- bashの設定
-		vim.lsp.enable("bashls")
-	end,
+    -- bash
+    vim.lsp.enable("bashls")
+
+    -- filetype
+    vim.filetype.add({
+      extension = { ipynb = "python" },
+    })
+
+    -- LspAttach
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      callback = function(ev)
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+        vim.bo[ev.buf].formatexpr = "v:lua.vim.lsp.formatexpr"
+      end,
+    })
+  end,
 }
