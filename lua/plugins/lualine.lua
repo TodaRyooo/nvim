@@ -4,12 +4,6 @@ return {
   lazy = false,
 
   config = function()
-<<<<<<< HEAD
-    require("lualine").setup({
-      options = {
-        -- theme = "codedark",
-        theme = "nightfly",
-=======
     local lsp_names = function()
       local clients = {}
       for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
@@ -38,7 +32,6 @@ return {
         -- theme = "gruvbox",
         -- theme = "murphy",
         theme = "onedark",
->>>>>>> e804727 (260309)
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         globalstatus = true,

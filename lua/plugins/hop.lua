@@ -8,15 +8,6 @@ return {
     keys = "etovxqpdygfblzhckisuran",
   },
 
-<<<<<<< HEAD
-	config = function()
-		require("hop").setup()
-		key("n", "'j", ":HopLine<cr>", { silent = true })
-		key("n", ";j", ":HopLine<cr>", { silent = true })
-		key("n", "'h", ":HopChar1<cr>", { silent = true })
-		key("n", ";h", ":HopChar1<cr>", { silent = true })
-	end,
-=======
   config = function()
     require("hop").setup()
     key("n", "'j", ":HopLine<cr>", { silent = true })
@@ -24,5 +15,4 @@ return {
     key("n", "'h", ":HopChar1<cr>", { silent = true })
     key("n", "]h", ":HopChar1<cr>", { silent = true })
   end,
->>>>>>> e804727 (260309)
 }

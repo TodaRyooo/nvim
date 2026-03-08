@@ -4,9 +4,6 @@ return {
 
 	config = function()
 		require("neoscroll").setup({
-<<<<<<< HEAD
-			duration_multiplier = 0.05,
-=======
 			-- mappings = { -- Keys to be mapped to their corresponding default scrolling animation
 			-- 	"<C-u>",
 			-- 	"<C-d>",
@@ -31,7 +28,6 @@ return {
 				"WinScrolled",
 				"CursorMoved",
 			},
->>>>>>> e804727 (260309)
 		})
 	end,
 }

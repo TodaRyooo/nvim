@@ -22,7 +22,8 @@ key("n", "<space><space>s", ":args ", { noremap = true })
 -- テキスト操作
 key("n", "<space>h", "^", { noremap = true })
 key("n", "<space>l", "$", { noremap = true })
-key("n", "<C-]>", "ggVG", { noremap = true })
+key("n", "<C-w>y", "ggVG", { noremap = true })
+
 
 -- 行に関する操作
 key("n", "<C-s>", [[:lua CompleteUseState()<CR> :w<CR>]], { noremap = true, silent = true })

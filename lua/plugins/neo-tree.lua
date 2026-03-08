@@ -1,17 +1,6 @@
 local key = require("utils").key
 
 return {
-<<<<<<< HEAD
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-		-- "MunifTanjim/nui.nvim",
-	},
-	lazy = false,
-	opts = {},
-=======
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   dependencies = {
@@ -59,5 +48,4 @@ return {
   -- 		},
   -- 	})
   -- end,
->>>>>>> e804727 (260309)
 }

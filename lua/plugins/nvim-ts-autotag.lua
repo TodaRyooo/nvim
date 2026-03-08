@@ -1,10 +1,5 @@
 return {
 	"windwp/nvim-ts-autotag",
-<<<<<<< HEAD
-
-	config = function()
-		require("nvim-ts-autotag").setup()
-=======
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	ft = { "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue", "tsx", "jsx" },
 	opts = {
@@ -18,6 +13,5 @@ return {
 	-- もし上記で動かない場合は config を以下のように書き換えてください
 	config = function(_, opts)
 		require("nvim-ts-autotag").setup(opts)
->>>>>>> e804727 (260309)
 	end,
 }

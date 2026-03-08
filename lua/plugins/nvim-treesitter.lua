@@ -9,12 +9,9 @@ return {
       ensure_installed = {
         "markdown",
         "markdown_inline",
-<<<<<<< HEAD
-=======
         "blade",
         "php",
         "python",
->>>>>>> e804727 (260309)
       },
       sync_install = true,
     })

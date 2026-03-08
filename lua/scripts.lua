@@ -59,8 +59,6 @@ function NERDTreeFindAndHighlight()
 
   vim.bo.iskeyword = original_isk
 end
-<<<<<<< HEAD
-=======
 
 -- すべてのハイライトグループの文字色を緑にする関数
 
@@ -94,4 +92,3 @@ end
 -- local name = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
 -- local fg = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")
 -- local bg = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "bg")
->>>>>>> e804727 (260309)

@@ -1,19 +1,4 @@
 return {
-	-- everforest
-	{
-		"neanias/everforest-nvim",
-		version = false,
-		lazy = false,
-		priority = 1000,
-		background = "hard",
-
-		config = function()
-			require("everforest").setup({})
-		end,
-	},
-
-<<<<<<< HEAD
-=======
 	-- cyberdream
 	{
 		"scottmckendry/cyberdream.nvim",
@@ -28,10 +13,10 @@ return {
 		end,
 	},
 
->>>>>>> e804727 (260309)
 	-- gruvbox
 	{
 		"ellisonleao/gruvbox.nvim",
+		lazy = true,
 		priority = 1000,
 		config = function()
 			require("gruvbox").setup({
@@ -44,16 +29,15 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		opts = {},
 	},
-<<<<<<< HEAD
-=======
 
 	-- onedark
 	{
 		"navarasu/onedark.nvim",
+		lazy = true,
 		priority = 1000,
 		config = function()
 			require("onedark").setup({
@@ -63,5 +47,4 @@ return {
 			require("onedark").load()
 		end,
 	},
->>>>>>> e804727 (260309)
 }

@@ -3,9 +3,6 @@ local opt = utils.set
 local cmd = utils.cmd
 
 -- NOTE 基本設定
-<<<<<<< HEAD
-cmd("colorscheme gruvbox")
-=======
 -- cmd("colorscheme tokyonight-night")
 -- cmd("colorscheme gruvbox")
 -- cmd("colorscheme onedark")
@@ -14,7 +11,6 @@ cmd("colorscheme cyberdream")
 -- cmd("colorscheme slate")
 -- cmd("colorscheme no-clown-fiesta")
 -- cmd("colorscheme everforest")
->>>>>>> e804727 (260309)
 cmd("syntax enable")
 cmd("filetype plugin indent on")
 opt.helplang = "ja"
@@ -22,8 +18,6 @@ opt.clipboard = "unnamedplus"
 opt.mouse = "a"
 opt.termguicolors = true
 opt.swapfile = false
-<<<<<<< HEAD
-=======
 -- opt.background = "dark"
 -- opt.background = "light"
 
@@ -38,7 +32,6 @@ opt.swapfile = false
 -- opt.softtabstop = 4
 -- opt.autoindent = true
 -- opt.smartindent = true
->>>>>>> e804727 (260309)
 
 -- NOTE タブやインデント関連の設定
 cmd("set nowrap")
@@ -67,8 +60,6 @@ opt.hlsearch = true
 opt.updatetime = 360
 
 -- NOTE ハイライト設定
-<<<<<<< HEAD
-=======
 -- cmd("hi! MatchParen cterm=bold gui=bold ctermfg=201 guifg=#ff00ff")
 -- cmd("hi! Visual cterm=bold gui=bold ctermfg=236 ctermbg=253 guifg=#303030 guibg=#dadada")
 -- cmd("hi! Boolean  ctermfg=171 guifg=#d75fff")
@@ -83,7 +74,6 @@ opt.updatetime = 360
 
 HighLightInfo()
 
->>>>>>> e804727 (260309)
 cmd("hi! MatchParen cterm=bold gui=bold ctermfg=201 guifg=#ff00ff")
 cmd("hi! Visual cterm=bold gui=bold ctermfg=236 ctermbg=253 guifg=#303030 guibg=#dadada")
 cmd("hi! Boolean  ctermfg=171 guifg=#d75fff")
