@@ -24,37 +24,15 @@ return {
         b.formatting.black,
         b.formatting.markdownlint,
 
-        -- .with({
-        -- filetypes = { "blade", "blade.php" },
-        -- extra_args = {
-        --   "--rules=@PSR2",
-        --   "--indent-with-space",
-        --   "--set-indent=2",
-        -- },
-        -- }),
-        -- b.diagnostics.eslint_d,
         b.diagnostics.flake8,
         b.diagnostics.erb_lint,
 
         b.completion.spell,
       },
 
-      -- vim.keymap.set("n", "<space>e", function()
-      --   vim.lsp.buf.format()
-      -- end),
-
-      -- on_attach = function(client, bufnr)
-      -- 	if client.supports_method("textDocument/formatting") then
-      -- 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      -- 		vim.api.nvim_create_autocmd("BufWritePre", {
-      -- 			group = augroup,
-      -- 			buffer = bufnr,
-      -- 			callback = function()
-      -- 				vim.lsp.buf.format()
-      -- 			end,
-      -- 		})
-      -- 	end
-      -- end,
+      vim.keymap.set("n", "<space>e", function()
+        vim.lsp.buf.format()
+      end),
     })
   end,
 }
