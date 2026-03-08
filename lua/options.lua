@@ -3,7 +3,7 @@ local opt = utils.set
 local cmd = utils.cmd
 
 -- 基本設定
-cmd("colorscheme onedark")
+cmd("colorscheme cyberdream")
 cmd("syntax enable")
 cmd("filetype plugin indent on")
 opt.helplang = "ja"
