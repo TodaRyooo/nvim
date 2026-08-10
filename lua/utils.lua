@@ -1,5 +1,6 @@
 local set = vim.opt
 local key = vim.keymap.set
 local cmd = vim.cmd
+local g = vim.g
 
-return { key = key, set = set, cmd = cmd, opt = set }
+return { key = key, set = set, cmd = cmd, opt = set, g = g }

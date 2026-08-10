@@ -24,13 +24,9 @@ key("n", "<space>h", "^", { noremap = true })
 key("n", "<space>l", "$", { noremap = true })
 key("n", "<C-w>y", "ggVG", { noremap = true })
 
-
 -- 行に関する操作
 key("n", "<C-s>", [[:lua CompleteUseState()<CR> :w<CR>]], { noremap = true, silent = true })
 key("n", "<C-i>", [[:lua YankFileName()<CR>]], { noremap = true, silent = true })
-
--- Google検索
-key("n", "<space><space>g", ":OpenBrowserSearch ", { noremap = true })
 
 -- NeoTree
 key("n", "<C-t>", ":Neotree toggle reveal_force_cwd<CR>", { noremap = true, silent = true })

@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("utils")
 require("plugin")
 require("scripts")

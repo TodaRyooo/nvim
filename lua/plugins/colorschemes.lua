@@ -2,7 +2,7 @@ return {
   -- cyberdream
   {
     "scottmckendry/cyberdream.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("cyberdream").setup({
@@ -37,12 +37,12 @@ return {
   -- onedark
   {
     "navarasu/onedark.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       require("onedark").setup({
         style = "warmer",
-        transparent = true,
+        -- transparent = true,
       })
       require("onedark").load()
     end,

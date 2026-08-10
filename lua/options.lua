@@ -1,9 +1,14 @@
 local utils = require("utils")
 local opt = utils.set
 local cmd = utils.cmd
+local g = utils.g
 
 -- 基本設定
-cmd("colorscheme cyberdream")
+-- cmd("colorscheme gruvbox")
+-- cmd("colorscheme cyberdream")
+cmd("colorscheme onedark")
+-- cmd("colorscheme zaibatsu")
+-- cmd("colorscheme tokyonight")
 cmd("syntax enable")
 cmd("filetype plugin indent on")
 opt.helplang = "ja"
@@ -23,6 +28,7 @@ opt.smartindent = true
 
 -- 表示設定
 opt.number = true
+opt.relativenumber = true
 opt.cursorline = true
 opt.signcolumn = "yes"
 opt.scrolloff = 5
