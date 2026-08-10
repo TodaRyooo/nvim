@@ -12,7 +12,7 @@
 ### ホームポジション至上主義
 
 マウス・矢印キー・遠いキーへの移動を極力ゼロにする。  
-`<C-h/j/k/l>` によるカーソル移動、hop.nvim による画面内ジャンプ、すべてはホームポジションを守るための設計です。
+`<C-h/j/k/l>` によるカーソル移動、mini.jump2d による画面内ジャンプ、すべてはホームポジションを守るための設計です。
 
 ### シンプル・軽量を重視
 
@@ -48,6 +48,7 @@
 |---|---|
 | [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | シンタックスハイライト |
 | [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) | HTML/JSX タグの自動補完・リネーム |
+| [jwalton512/vim-blade](https://github.com/jwalton512/vim-blade) | Laravel Blade テンプレートのシンタックスサポート |
 
 ### ファイル操作 / 検索
 
@@ -63,9 +64,7 @@
 | プラグイン | 用途 |
 |---|---|
 | [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | diff・blame・show 等の Git 操作 |
-| [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim) | ファイル単位の git log / diff 表示 |
 | [kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) | lazygit の Neovim 統合 |
-| [echasnovski/mini.git](https://github.com/echasnovski/mini.nvim) | Git 操作の補助（mini.nvim） |
 
 ### テキスト編集
 
@@ -80,7 +79,7 @@
 
 | プラグイン | 用途 |
 |---|---|
-| [smoka7/hop.nvim](https://github.com/smoka7/hop.nvim) | 画面内高速ジャンプ |
+| [echasnovski/mini.jump2d](https://github.com/echasnovski/mini.nvim) | 画面内高速ジャンプ（mini.nvim） |
 
 ### UI
 
@@ -98,10 +97,10 @@
 
 | プラグイン | 備考 |
 |---|---|
-| [scottmckendry/cyberdream.nvim](https://github.com/scottmckendry/cyberdream.nvim) | **デフォルト**（透過・イタリックコメント有効） |
+| [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim) | **デフォルト**（warmer スタイル） |
+| [scottmckendry/cyberdream.nvim](https://github.com/scottmckendry/cyberdream.nvim) | 候補（透過・イタリックコメント有効） |
 | [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | 候補 |
 | [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | 候補 |
-| [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim) | 候補（warmer スタイル） |
 
 ### その他
 
@@ -152,8 +151,7 @@
 | `<Space>h` | 行頭の文字へ移動 |
 | `<Space>l` | 行末へ移動 |
 | `<C-w>y` | ファイル全体を選択 |
-| `'j` / `]j` | hop: 行ジャンプ |
-| `'h` / `]h` | hop: 1文字入力でジャンプ |
+| `<Space>j` | mini.jump2d: 画面内ジャンプ開始 |
 
 #### arg 管理
 
@@ -171,7 +169,6 @@
 | `<Space>gb` | `git blame` を表示（gitsigns） |
 | `<Space>gs` | `git show`（コミットハッシュ入力）（gitsigns） |
 | `<Space>q` | 行単位の blame を toggle（gitsigns） |
-| `dv` | 現在ファイルの git log / diff を表示（diffview） |
 | `glg` | lazygit を起動 |
 
 #### LSP (lspsaga)
@@ -302,10 +299,11 @@ nvim
 ├── lazy-lock.json        # プラグインバージョンのロックファイル
 ├── .luarc.json           # Lua LSP 設定
 └── lua/
+    ├── keymaps.lua       # キーマップのエントリーポイント
     ├── keymaps/
-    │   ├── keymaps.lua   # キーマップのエントリーポイント
     │   ├── nkey.lua      # ノーマルモードのキーマップ
-    │   └── ikey.lua      # インサートモードのキーマップ
+    │   ├── ikey.lua      # インサートモードのキーマップ
+    │   └── plugins.lua   # プラグインのキーマップ（lazy-load契機の keys は各 plugins/*.lua に残置）
     ├── plugins/          # プラグインごとの設定ファイル
     ├── options.lua       # Neovim 基本設定
     ├── plugin.lua        # lazy.nvim の初期化

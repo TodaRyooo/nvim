@@ -57,9 +57,5 @@ return {
         b.diagnostics.eslint_d,
       },
     })
-
-    vim.keymap.set("n", "<space>e", function()
-      vim.lsp.buf.format()
-    end)
   end,
 }
